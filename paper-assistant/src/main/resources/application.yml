@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: paper-assistant
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/llm_papers?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+
+# MyBatis Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# 应用自定义配置
+app:
+  search:
+    # 搜索引擎配置
+    serpapi:
+      api-key: 78dad06d7c74a448cf004a956137c24c8ce2caa6bd7e3c02a1c69d0e720a8b49
+      base-url: https://serpapi.com/search
+    # 学术搜索配置
+    academic:
+      arxiv-base-url: https://export.arxiv.org/api/query
+      semantic-scholar-base-url: https://api.semanticscholar.org/graph/v1/paper/search
+      max-results: 10
+
+  # 论文分析配置
+  analysis:
+    max-paper-length: 10000
+    summary-length: 500
+    learning-points-count: 5
+
+
+logging:
+  level:
+    com.llm.research: DEBUG
+    dev.langchain4j: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+
+jwt:
+  secret: K8@x!qA3$ZvP5sLd*RgTnYw^CjFmUoI7%cQ9i&eB0#yH4(6W)E2~aVpXkDfGhJzSrM
+  expiration: 864000000

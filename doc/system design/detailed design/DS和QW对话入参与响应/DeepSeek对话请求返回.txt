@@ -1,0 +1,53 @@
+// DeepSeek对话请求返回
+
+event: ready
+data: {"request_message_id":3,"response_message_id":4}
+
+event: update_session
+data: {"updated_at":1750989622.736}
+
+data: {
+        "v": {
+          "response": {
+            "message_id": 4,
+            "parent_id": 3,
+            "model": "",
+            "role": "ASSISTANT",
+            "content": "",
+            "thinking_enabled": true,
+            "thinking_content": null,
+            "thinking_elapsed_secs": null,
+            "ban_edit": false,
+            "ban_regenerate": false,
+            "status": "WIP",
+            "accumulated_token_usage": 0,
+            "files": [],
+            "tips": [],
+            "inserted_at": 1750989642.188,
+            "search_enabled": true,
+            "search_status": "INIT",
+            "search_results": null
+          }
+        }
+      }
+data: {"v": "ANSWER", "p": "response/search_status"}
+
+data: {"v": "嗯", "p": "response/thinking_content"}
+
+data: {"v": "，", "o": "APPEND"}
+
+data: {"v": "返回内容"}
+
+data: {"v": "返回内容"}
+
+data: {"v": [{"v": "FINISHED", "p": "status"}, {"v": 1400, "p": "accumulated_token_usage"}], "p": "response", "o": "BATCH"}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1750989722.346601}
+
+event: close
+data: {"click_behavior":"none"}
+

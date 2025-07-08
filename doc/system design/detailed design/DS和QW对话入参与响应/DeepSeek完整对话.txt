@@ -1,0 +1,436 @@
+// 第一次新建对话，请求对话入参
+
+// 先调用create获取第一次对话入参
+// 返回
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "biz_code": 0,
+        "biz_msg": "",
+        "biz_data": {
+            "id": "da9e51d8-1f4f-40ba-b12e-e8b027e9fc4f",
+            "seq_id": 1000467,
+            "agent": "chat",
+            "character": null,
+            "title": null,
+            "title_type": null,
+            "version": 0,
+            "current_message_id": null,
+            "inserted_at": 1751005616.64,
+            "updated_at": 1751005616.636
+        }
+    }
+}
+
+
+// 第一次对话请求入参
+{
+  "chat_session_id": "da9e51d8-1f4f-40ba-b12e-e8b027e9fc4f",
+  "parent_message_id": null,
+  "prompt": "test",
+  "ref_file_ids": [],
+  "thinking_enabled": false,
+  "search_enabled": false
+}
+
+// 返回1
+event: ready
+data: {"request_message_id":1,"response_message_id":2}
+
+event: update_session
+data: {"updated_at":1751005616.636}
+
+data: {"v": {"response": {"message_id": 2, "parent_id": 1, "model": "", "role": "ASSISTANT", "content": "", "thinking_enabled": false, "thinking_content": null, "thinking_elapsed_secs": null, "ban_edit": false, "ban_regenerate": false, "status": "WIP", "accumulated_token_usage": 0, "files": [], "tips": [], "inserted_at": 1751005617.148, "search_enabled": false, "search_status": null, "search_results": null}}}
+
+data: {"v": "Hello", "p": "response/content", "o": "APPEND"}
+
+data: {"v": "!"}
+
+data: {"v": " It"}
+
+data: {"v": " looks"}
+
+data: {"v": " like"}
+
+data: {"v": " you"}
+
+data: {"v": "'re"}
+
+data: {"v": " testing"}
+
+data: {"v": " things"}
+
+data: {"v": " out"}
+
+data: {"v": "."}
+
+data: {"v": " How"}
+
+data: {"v": " can"}
+
+data: {"v": " I"}
+
+data: {"v": " assist"}
+
+data: {"v": " you"}
+
+data: {"v": " today"}
+
+data: {"v": "?"}
+
+data: {"v": " 😊"}
+
+data: {"v": [{"v": "FINISHED", "p": "status"}, {"v": 50, "p": "accumulated_token_usage"}], "p": "response", "o": "BATCH"}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1751005621.075622}
+
+event: title
+data: {"content":"User Testing Assistant Interaction"}
+
+event: close
+data: {"click_behavior":"none"}
+
+
+
+// 请求2
+{
+  "chat_session_id": "da9e51d8-1f4f-40ba-b12e-e8b027e9fc4f",
+  "parent_message_id": 2,
+  "prompt": "test",
+  "ref_file_ids": [],
+  "thinking_enabled": false,
+  "search_enabled": false
+}
+
+// 返回2
+event: ready
+data: {"request_message_id":3,"response_message_id":4}
+
+event: update_session
+data: {"updated_at":1751005621.062}
+
+data: {"v": {"response": {"message_id": 4, "parent_id": 3, "model": "", "role": "ASSISTANT", "content": "", "thinking_enabled": false, "thinking_content": null, "thinking_elapsed_secs": null, "ban_edit": false, "ban_regenerate": false, "status": "WIP", "accumulated_token_usage": 0, "files": [], "tips": [], "inserted_at": 1751005811.402, "search_enabled": false, "search_status": null, "search_results": null}}}
+
+data: {"v": "Got", "p": "response/content", "o": "APPEND"}
+
+data: {"v": " it"}
+
+data: {"v": "!"}
+
+data: {"v": " If"}
+
+data: {"v": " you"}
+
+data: {"v": "'re"}
+
+data: {"v": " testing"}
+
+data: {"v": ","}
+
+data: {"v": " everything"}
+
+data: {"v": " seems"}
+
+data: {"v": " to"}
+
+data: {"v": " be"}
+
+data: {"v": " working"}
+
+data: {"v": " fine"}
+
+data: {"v": " on"}
+
+data: {"v": " my"}
+
+data: {"v": " end"}
+
+data: {"v": "."}
+
+data: {"v": " Let"}
+
+data: {"v": " me"}
+
+data: {"v": " know"}
+
+data: {"v": " if"}
+
+data: {"v": " you"}
+
+data: {"v": "'d"}
+
+data: {"v": " like"}
+
+data: {"v": " help"}
+
+data: {"v": " with"}
+
+data: {"v": " anything"}
+
+data: {"v": " specific"}
+
+data: {"v": "—"}
+
+data: {"v": "I"}
+
+data: {"v": "'m"}
+
+data: {"v": " happy"}
+
+data: {"v": " to"}
+
+data: {"v": " assist"}
+
+data: {"v": "!"}
+
+data: {"v": " 😊"}
+
+data: {"v": "  \n\n"}
+
+data: {"v": "("}
+
+data: {"v": "Or"}
+
+data: {"v": " are"}
+
+data: {"v": " you"}
+
+data: {"v": " testing"}
+
+data: {"v": " something"}
+
+data: {"v": " in"}
+
+data: {"v": " particular"}
+
+data: {"v": "?"}
+
+data: {"v": " Feel"}
+
+data: {"v": " free"}
+
+data: {"v": " to"}
+
+data: {"v": " give"}
+
+data: {"v": " me"}
+
+data: {"v": " a"}
+
+data: {"v": " task"}
+
+data: {"v": "!)"}
+
+data: {"v": [{"v": "FINISHED", "p": "status"}, {"v": 110, "p": "accumulated_token_usage"}], "p": "response", "o": "BATCH"}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1751005814.239488}
+
+event: close
+data: {"click_behavior":"none"}
+
+// 请求3
+{
+  "chat_session_id": "da9e51d8-1f4f-40ba-b12e-e8b027e9fc4f",
+  "parent_message_id": 4,
+  "prompt": "test",
+  "ref_file_ids": [],
+  "thinking_enabled": false,
+  "search_enabled": false
+}
+
+// 返回3
+
+event: ready
+data: {"request_message_id":5,"response_message_id":6}
+
+event: update_session
+data: {"updated_at":1751005814.228}
+
+data: {"v": {"response": {"message_id": 6, "parent_id": 5, "model": "", "role": "ASSISTANT", "content": "", "thinking_enabled": false, "thinking_content": null, "thinking_elapsed_secs": null, "ban_edit": false, "ban_regenerate": false, "status": "WIP", "accumulated_token_usage": 0, "files": [], "tips": [], "inserted_at": 1751005907.189, "search_enabled": false, "search_status": null, "search_results": null}}}
+
+data: {"v": "Hello", "p": "response/content", "o": "APPEND"}
+
+data: {"v": " again"}
+
+data: {"v": "!"}
+
+data: {"v": " If"}
+
+data: {"v": " you"}
+
+data: {"v": "'re"}
+
+data: {"v": " running"}
+
+data: {"v": " tests"}
+
+data: {"v": ","}
+
+data: {"v": " I"}
+
+data: {"v": "'m"}
+
+data: {"v": " ready"}
+
+data: {"v": " and"}
+
+data: {"v": " responding"}
+
+data: {"v": "."}
+
+data: {"v": " 🚀"}
+
+data: {"v": "  \n\n"}
+
+data: {"v": "Let"}
+
+data: {"v": " me"}
+
+data: {"v": " know"}
+
+data: {"v": " if"}
+
+data: {"v": " you"}
+
+data: {"v": "'d"}
+
+data: {"v": " like"}
+
+data: {"v": " to"}
+
+data: {"v": ":"}
+
+data: {"v": "  \n"}
+
+data: {"v": "-"}
+
+data: {"v": " Test"}
+
+data: {"v": " a"}
+
+data: {"v": " specific"}
+
+data: {"v": " feature"}
+
+data: {"v": " ("}
+
+data: {"v": "e"}
+
+data: {"v": ".g"}
+
+data: {"v": ".,"}
+
+data: {"v": " code"}
+
+data: {"v": ","}
+
+data: {"v": " calculations"}
+
+data: {"v": ","}
+
+data: {"v": " creativity"}
+
+data: {"v": ")."}
+
+data: {"v": "  \n"}
+
+data: {"v": "-"}
+
+data: {"v": " Check"}
+
+data: {"v": " how"}
+
+data: {"v": " I"}
+
+data: {"v": " handle"}
+
+data: {"v": " certain"}
+
+data: {"v": " requests"}
+
+data: {"v": "."}
+
+data: {"v": "  \n"}
+
+data: {"v": "-"}
+
+data: {"v": " Just"}
+
+data: {"v": " keep"}
+
+data: {"v": " seeing"}
+
+data: {"v": " \""}
+
+data: {"v": "test"}
+
+data: {"v": "\""}
+
+data: {"v": " replies"}
+
+data: {"v": " ("}
+
+data: {"v": "I"}
+
+data: {"v": " won"}
+
+data: {"v": "'t"}
+
+data: {"v": " get"}
+
+data: {"v": " tired"}
+
+data: {"v": ","}
+
+data: {"v": " promise"}
+
+data: {"v": "!)."}
+
+data: {"v": "  \n\n"}
+
+data: {"v": "Or"}
+
+data: {"v": " ask"}
+
+data: {"v": " me"}
+
+data: {"v": " anything"}
+
+data: {"v": "—"}
+
+data: {"v": "I"}
+
+data: {"v": "’"}
+
+data: {"v": "m"}
+
+data: {"v": " here"}
+
+data: {"v": " to"}
+
+data: {"v": " help"}
+
+data: {"v": "!"}
+
+data: {"v": " 😄"}
+
+data: {"v": [{"v": "FINISHED", "p": "status"}, {"v": 200, "p": "accumulated_token_usage"}], "p": "response", "o": "BATCH"}
+
+event: finish
+data: {}
+
+event: update_session
+data: {"updated_at":1751005911.211765}
+
+event: close
+data: {"click_behavior":"none"}
+

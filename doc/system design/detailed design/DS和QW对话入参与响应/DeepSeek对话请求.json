@@ -1,0 +1,9 @@
+// DeepSeek对话请求入参
+{
+  "chat_session_id": "c168bc48-6e09-417b-9898-5f49dc302289",
+  "parent_message_id": 2,
+  "prompt": "给出你的对话请求结构",
+  "ref_file_ids": [],
+  "thinking_enabled": true,
+  "search_enabled": true
+}

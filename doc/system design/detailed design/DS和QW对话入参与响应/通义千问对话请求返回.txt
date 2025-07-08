@@ -1,0 +1,103 @@
+// 通义千问对话请求返回
+
+data: {
+        "aiDisclaimer": false,
+        "canFeedback": true,
+        "canRegenerate": true,
+        "canShare": true,
+        "canShow": true,
+        "contentFrom": "text",
+        "contentType": "think",
+        "contents": [
+          {
+            "cardCode": "tongyi-plugin-deep-think",
+            "content": "。",
+            "contentType": "text",
+            "id": "23f3fc8ce51746eaba112a6fa6704322_2",
+            "incremental": true,
+            "index": 2,
+            "role": "assistant",
+            "status": "generating"
+          }
+        ],
+        "incremental": true,
+        "msgId": "23f3fc8ce51746eaba112a6fa6704322",
+        "msgStatus": "generating",
+        "params": {
+          "searchProb": "certain",
+          "deepThinkVer": "v1",
+          "showDepthSearchButton": true
+        },
+        "parentMsgId": "63e1f5b32cbd4b77b5879cc13eff2897",
+        "pkgId": 424,
+        "sessionId": "68e53c8ccdbb4d849d38db847c9cc480",
+        "sessionOpen": true,
+        "sessionShare": true,
+        "sessionWarnNew": false,
+        "stopReason": "null",
+        "traceId": "736d69399a201fb69314e49c309669e0"
+      }
+data: {
+        "aiDisclaimer": false,
+        "canFeedback": true,
+        "canRegenerate": true,
+        "canShare": true,
+        "canShow": true,
+        "contentFrom": "text",
+        "contentType": "think",
+        "contents": [
+          {
+            "content": "{\"pluginCall\":\"{}\",\"pluginResult\":\"[{\\\"summary\\\":\\\"\\\",\\\"author\\\":\\\"\\\",\\\"format\\\":\\\"\\\",\\\"source_type\\\":\\\"search\\\",\\\"source\\\":\\\"smweb\\\",\\\"body\\\":\\\"本文由 ChatMoney团队出品\\\\n一、URI规范\\\\nURI全部使用小写字母； 使用中划线（-）分隔单词，而不是下划线（_）； 对参数列表进行编码； URI中的名词应使用复数形式，代表资源集合； 网址中只能包含名词，不能有动词，特殊情况除外。名词通常与数据库的表格名对应。\\\\n资源集合与单个资源：\\\\nURI可以表示资源集合或单个资源。例如：\\\\n资源集合：/zoos（所有动物园），/zoos/1/anima...\\\",\\\"classification\\\":\\\"\\\",\\\"title\\\":\\\"RESTfulAPI设计规范与最佳实践-今日头条\\\",\\\"url\\\":\\\"https://www.toutiao.com/article/7400957839574843945/\\\",\\\"data_from\\\":\\\"\\\",\\\"kb_id\\\":\\\"\\\",\\\"product_type\\\":\\\"\\\",\\\"file_id\\\":\\\"\\\",\\\"host_logo\\\":\\\"http://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9zM2EucHN0YXRwLmNvbS90b3V0aWFvL3Jlc291cmNlL250b3V0aWFvX3dlYi9zdGF0aWMvaW1hZ2UvZmF2aWNvbl84ZTljOWM3Lmljbw==&sign=yx:AhgEiNjc_MAa6BN6TFr061E2mnM=&tv=400_400\\\",\\\"time\\\":\\\"2024年08月09日\\\",\\\"host_name\\\":\\\"今日头条\\\"}]\",\"pluginExtra\":{}}",
+            "contentType": "plugin",
+            "id": "23f3fc8ce51746eaba112a6fa6704322_0",
+            "incremental": false,
+            "pluginCode": "tongyi_nlp_web_search",
+            "pluginName": "互联网信息搜索",
+            "role": "plugin",
+            "status": "finished"
+          },
+          {
+            "cardCode": "tongyi-plugin-deep-think",
+            "content": "{\"content\":\"嗯，用户问的是“AI对话返回还需要RESTful标准么”，我需要仔细分析这个问题。首先，用户可能是在开发一个AI对话应用，或者在考虑如何设计API来处理对话请求。他们想知道是否需要遵循RESTful的标准，还是可以采用其他方式。\\n\\n首先，我应该回顾一下RESTful API的设计规范。根据之前提供的资料，REST强调使用标准的HTTP方法（GET、POST等），URI的结构，状态码的正确使用等。比如，URI用名词复数形式，避免层级过深，使用查询参数代替路径中的实体导航等。此外，请求和响应的格式也有具体要求，比如GET请求返回资源集合或单个对象，POST创建资源并返回新对象等。\\n\\n接下来，考虑AI对话的特点。对话通常涉及发送用户输入，获取模型生成的回复。这可能是一个异步的过程，尤其是如果处理时间较长的话。这时候，传统的同步RESTful请求可能不够高效，或者需要考虑长轮询、WebSocket等机制。\\n\\n用户可能想知道的是，在AI对话的场景下，是否必须严格遵守RESTful的规范，或者是否有更合适的设计方式。例如，是否需要为每个对话请求设计特定的URI，或者是否可以使用更简单的HTTP方法，比如所有对话请求都通过POST到同一个端点。\\n\\n另外，错误处理也是需要考虑的。RESTful中要求使用标准的状态码，比如400、500等，并且在响应中包含错误信息。对于AI对话来说，可能需要处理各种错误，比如输入格式错误、模型处理失败等，这些都需要符合RESTful的错误处理规范。\\n\\n还有，AI对话可能需要支持实时性，比如流式响应，这时候传统的REST可能不太适合，可能需要使用WebSocket或者其他流式传输协议。但如果是简单的问答，可能RESTful还是适用的。\\n\\n用户可能的深层需求是希望设计一个高效、可维护的API，同时兼顾AI对话的特殊性。他们可能担心如果严格遵循RESTful会导致设计过于复杂，或者无法满足性能需求。因此，需要给出一个平衡点，说明在哪些方面可以遵循RESTful，在哪些方面可以灵活处理。\\n\\n需要指出的是，虽然RESTful是一个广泛采用的标准，但在某些场景下，比如需要高实时性或复杂交互时，可能需要结合其他技术。但如果是简单的请求-响应模式，RESTful仍然是一个很好的选择，因为它易于理解和实现，也便于集成到现有的系统中。\\n\\n总结来说，回答应该包括以下几点：解释RESTful的核心原则，讨论AI对话的特殊需求，分析是否适用RESTful，给出建议的适用场景和可能的替代方案，以及如何结合两者的优势。\",\"inferenceCost\":22647}",
+            "contentType": "think",
+            "id": "23f3fc8ce51746eaba112a6fa6704322_2_think",
+            "incremental": false,
+            "role": "assistant",
+            "status": "finished"
+          },
+          {
+            "cardCode": "tongyi-plugin-deep-think",
+            "content": "在AI对话的场景中，是否遵循RESTful标准取决于具体的业务需求和技术架构。以下是详细的分析：\n\n---\n\n### **1. 什么是RESTful标准？**\nREST（Representational State Transfer）是一种基于HTTP协议的API设计风格，核心原则包括：\n- **统一接口**：使用标准的HTTP方法（GET、POST、PUT、DELETE等）。\n- **资源导向**：通过URI标识资源，如 `/index/messages`。\n- **无状态**：每次请求独立，服务器不保存客户端状态。\n- **幂等性**：某些方法（如GET、PUT、DELETE）的重复调用结果一致。\n- **可缓存性**：响应可缓存以提高性能。\n\n---\n\n### **2. AI对话的特殊需求**\nAI对话通常具有以下特点，可能需要对RESTful进行调整：\n- **异步处理**：对话可能需要长时间计算（如大模型推理），需支持异步请求（如Webhook回调或任务队列）。\n- **流式响应**：AI生成内容可能分块返回（如流式文本），传统REST的请求-响应模式可能不够高效。\n- **会话状态**：对话需要维护上下文（如用户历史消息），而REST默认无状态。\n- **实时性**：某些场景需要实时交互（如聊天机器人），可能需要WebSocket等技术。\n\n---\n\n### **3. 是否需要遵循RESTful？**\n#### **适用场景**\n- **简单请求-响应**：如果AI对话是同步的、短时的（如单次问答），RESTful是合理的选择。\n  - 示例：  \n    ```http\n    POST /index/ai/chat\n    Content-Type: application/json\n\n    {\n      \"user_id\": \"123\",\n      \"message\": \"你好！\"\n    }\n    ```\n    响应：\n    ```json\n    {\n      \"response\": \"你好！有什么可以帮助你？\"\n    }\n    ```\n\n- **与现有系统集成**：如果系统已使用RESTful架构，保持一致性可降低复杂性。\n\n#### **需要调整的场景**\n- **异步/流式处理**：  \n  - 使用 **WebSocket** 或 **gRPC** 替代HTTP长轮询。  \n  - 示例（WebSocket）：  \n    ```javascript\n    // 客户端\n    const socket = new WebSocket(\"wss://index.example.com/ai/chat\");\n    socket.send(JSON.stringify({ user_id: \"123\", message: \"你好！\" }));\n    socket.onmessage = (event) => {\n      console.log(\"收到回复：\", event.data);\n    };\n    ```\n\n- **会话状态管理**：  \n  - 在REST中，可通过 **Token** 或 **Session ID** 传递上下文：  \n    ```http\n    POST /index/ai/chat\n    Content-Type: application/json\n    Authorization: Bearer <session_token>\n\n    {\n      \"message\": \"继续讨论之前的主题。\"\n    }\n    ```\n\n- **实时性要求高**：  \n  - 使用 **Server-Sent Events (SSE)** 或 **MQTT** 等协议。\n\n---\n\n### **4. 错误处理与兼容性**\n- **RESTful错误码**：即使AI对话使用非REST协议，仍建议遵循HTTP状态码规范（如 `400 Bad Request`、`500 Internal Server Error`）。\n- **错误信息结构**：  \n  ```json\n  {\n    \"error\": {\n      \"code\": 400,\n      \"message\": \"输入内容不符合要求。\",\n      \"details\": \"请提供有效的用户ID。\"\n    }\n  }\n  ```\n\n---\n\n### **5. 实践建议**\n1. **优先考虑业务需求**：  \n   - 如果对话逻辑简单且无需实时性，RESTful足够。\n   - 如果涉及复杂交互（如流式输出、实时语音），结合其他技术（如WebSocket）。\n\n2. **保持接口一致性**：  \n   - 即使使用非REST技术，命名规则（如 `/index/ai/chat`）和错误处理仍可参考RESTful规范。\n\n3. **版本控制**：  \n   - 通过URI或请求头管理API版本（如 `/index/v1/ai/chat` 或 `Accept: application/vnd.example.v1+json`）。\n\n4. **文档与工具**：  \n   - 使用Swagger/OpenAPI生成API文档，便于开发者调试。\n\n---\n\n### **6. 总结**\n| 需求场景               | 是否推荐RESTful | 替代方案              |\n|------------------------|-----------------|-----------------------|\n| 同步问答（如客服机器人） | ✅ 推荐         | -                    |\n| 流式输出（如实时翻译）   | ❌ 不推荐       | WebSocket/SSE        |\n| 异步任务（如长文本生成）| ❌ 不推荐       | Webhook + 任务队列   |\n| 多轮对话（需维护上下文）| ✅ 可用（带Token）| 状态管理中间件       |\n\n最终，**RESTful是一种设计风格，而非强制规范**。在AI对话中，可以根据实际需求灵活选择技术方案，同时保持接口的清晰性和可维护性。",
+            "contentType": "text",
+            "id": "23f3fc8ce51746eaba112a6fa6704322_2",
+            "incremental": false,
+            "role": "assistant",
+            "status": "finished"
+          },
+          {
+            "content": "{\"links\":[{\"logo\":\"http://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9zM2EucHN0YXRwLmNvbS90b3V0aWFvL3Jlc291cmNlL250b3V0aWFvX3dlYi9zdGF0aWMvaW1hZ2UvZmF2aWNvbl84ZTljOWM3Lmljbw==&sign=yx:AhgEiNjc_MAa6BN6TFr061E2mnM=&tv=400_400\",\"title\":\"RESTfulAPI设计规范与最佳实践-今日头条\",\"url\":\"https://www.toutiao.com/article/7400957839574843945/\"}]}",
+            "contentType": "referenceLink",
+            "id": "23f3fc8ce51746eaba112a6fa6704322_1_last",
+            "incremental": false,
+            "role": "assistant",
+            "status": "finished"
+          }
+        ],
+        "incremental": false,
+        "msgId": "23f3fc8ce51746eaba112a6fa6704322",
+        "msgStatus": "finished",
+        "params": {
+          "searchProb": "certain",
+          "deepThinkVer": "v1",
+          "showDepthSearchButton": true
+        },
+        "parentMsgId": "63e1f5b32cbd4b77b5879cc13eff2897",
+        "pkgId": 425,
+        "sessionId": "68e53c8ccdbb4d849d38db847c9cc480",
+        "sessionOpen": true,
+        "sessionShare": true,
+        "sessionWarnNew": false,
+        "stopReason": "stop",
+        "traceId": "736d69399a201fb69314e49c309669e0"
+      }
+data: [DONE]

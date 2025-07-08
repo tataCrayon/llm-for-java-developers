@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- 定义属性，方便后续引用 -->
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="MAIN_LOG_FILE">logs/paper-assistant/paper-assistant.log</Property>
+        <Property name="LangChain4j_LOG_FILE">logs/paper-assistant/langchain4j.log</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <!-- 主日志文件输出 -->
+        <RollingFile name="MainFile" fileName="${MAIN_LOG_FILE}"
+                     filePattern="logs/paper-assistant/paper-assistant-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <!-- Agent 和 LLM 日志文件输出 -->
+        <RollingFile name="LangChain4jFile" fileName="${LangChain4j_LOG_FILE}"
+                     filePattern="logs/paper-assistant/langchain4j-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- 根日志配置，指定日志级别和输出目标 -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MainFile"/>
+        </Root>
+
+        <!-- 项目日志级别 -->
+        <Logger name="com.crayon.paper" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MainFile"/>
+        </Logger>
+
+        <!-- 为 LangChain4j 相关日志设置单独的 Logger -->
+        <Logger name="dev.langchain4j" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LangChain4jFile"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>

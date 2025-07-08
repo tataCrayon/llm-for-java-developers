@@ -1,0 +1,96 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FFFFFF
+skinparam sequence {
+  ArrowColor #333333
+  ActorBorderColor #333333
+  LifeLineBorderColor #333333
+  LifeLineBackgroundColor #F5F5F5
+  ParticipantBorderColor #333333
+  ParticipantBackgroundColor #E3F2FD
+  ParticipantFontColor #333333
+}
+
+actor User as U
+participant "Controller\n(Spring)" as C
+participant "ResearchAgent" as RA
+database "ChatMemory\n(会话存储)" as CM
+database "SearchCount\n(计数器)" as SC
+participant "LLM" as L
+participant "Tool\n(搜索工具)" as T
+
+== 会话初始化 ==
+
+U -> C: POST /start
+activate C
+C -> CM: 创建新会话(sessionId)
+C -> SC: 初始化搜索计数器(0)
+C --> U: 返回 sessionId
+deactivate C
+
+== 研究请求处理 ==
+
+U -> C: POST /query\n(sessionId + 问题)
+activate C
+C -> RA: research(sessionId, 问题)
+activate RA
+
+RA -> CM: 获取会话内存(sessionId)
+CM --> RA: ChatMemory对象
+
+RA -> CM: 添加用户消息\n(用户问题)
+activate CM
+CM --> RA: 确认保存
+
+RA -> SC: 获取当前搜索计数(sessionId)
+SC --> RA: 计数(0)
+
+loop ReAct循环 [最多5轮]
+    RA -> RA: 生成提示词\n(包含历史消息)
+    RA -> L: 发送提示词
+    activate L
+    L --> RA: 返回AI响应
+    deactivate L
+
+    alt 响应包含工具调用
+        RA -> RA: 解析工具请求\n(Action + Input)
+        RA -> T: 执行工具调用
+        activate T
+        T --> RA: 返回工具结果
+        deactivate T
+
+        RA -> CM: 添加工具结果消息
+        activate CM
+        CM --> RA: 确认保存
+        deactivate CM
+
+        RA -> SC: 增加搜索计数(sessionId)
+        activate SC
+        SC --> RA: 更新计数
+        deactivate SC
+    else 响应包含最终答案
+        RA -> RA: 提取最终答案
+        break
+    end
+end
+
+RA --> C: 返回最终答案
+deactivate RA
+
+C --> U: 返回研究结果
+deactivate C
+
+== 会话状态示例 ==
+
+note over CM, SC
+**会话状态示例:**
+sessionId: "abc-123"
+ChatMemory:
+  [User: "推荐LLM优化论文",
+   AI: "Thought:...Action: search_paper...",
+   Tool: "【论文1】...",
+   AI: "Final Answer:..."]
+SearchCount: 1
+end note
+
+@enduml

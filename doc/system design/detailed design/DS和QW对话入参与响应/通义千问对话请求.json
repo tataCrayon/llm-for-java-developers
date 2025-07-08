@@ -1,0 +1,35 @@
+// 通义千问对话请求
+
+{
+  "model": "",
+  "action": "next",
+  "mode": "chat",
+  "userAction": "chat",
+  "requestId": "61347aa82c6d49fab9e2f5ffc78fc96f",
+  "sessionId": "",
+  "sessionType": "text_chat",
+  "parentMsgId": "",
+  "params": {
+    "agentId": "",
+    "searchType": "",
+    "pptGenerate": false,
+    "bizScene": "",
+    "bizSceneInfo": {},
+    "specifiedModel": "",
+    "deepThink": true,
+    "deepResearch": false
+  },
+  "contents": [
+    {
+      "content": "给出你的对话请求结构",
+      "contentType": "text",
+      "role": "user",
+      "ext": {
+        "searchType": "",
+        "pptGenerate": false,
+        "deepThink": true,
+        "deepResearch": false
+      }
+    }
+  ]
+}
