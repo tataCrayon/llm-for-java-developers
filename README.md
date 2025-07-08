@@ -19,7 +19,7 @@ LLM应用开发学习同LangChain4j一样，是一个持续迭代的过程。
 
 ## 架构说明
 
-![img.png](./doc/system design/architecture diagram/AI助手架构设计稿.png)
+![AI助手架构设计](./doc/system%20design/architecture%20diagram/AI助手架构设计稿.png)
 
 ## 技术栈
 
